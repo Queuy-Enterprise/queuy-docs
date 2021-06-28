@@ -2,7 +2,8 @@ version: '3'
 
 services:
   jekyll-container:
-    image: etelej/jekyll
+    build:
+      context: ./
     ports:
       - "4000:4000"
     volumes:
