@@ -36,7 +36,7 @@ layout: default
     others. VCS are sometimes known as SCM (Source Code Management) tools or RCS (Revision Control System). One of the
     most popular VCS tools in use today is called Git. Git is a Distributed VCS, a category known as DVCS.
 </p>
-<h2>What is Git</h2>
+<h2 id="what-is-git">What is Git</h2>
 <hr>
 <p>
     By far, the most widely used modern version control system in the world today is Git. Git is a mature, actively
@@ -62,7 +62,7 @@ layout: default
     climb the learning curve when migrating to Git from another version control system, many of their existing and
     future developers do not need to be trained on Git.
 </p>
-<h2>Getting started with Git</h2>
+<h2 id="getting-started-with-git">Getting started with Git</h2>
 <hr>
 <p>
     Git is a very powerful tool and as noted before is essential to any mature development workflow. However, due to
@@ -70,7 +70,7 @@ layout: default
     In this section we are going to quickly go through the process of installation and learning basic commands
     you need to know to get started with Git.
 </p>
-<h3>Install Git</h3>
+<h3 id="install-git">Install Git</h3>
 <p>
     Here is how to install Git on Ubuntu distributions:
 </p>
@@ -85,7 +85,7 @@ layout: default
     $ git --version
     git version 2.30.2
 {% endhighlight %}
-<h3>Initialize repository</h3>
+<h3 id="initialize-repository">Initialize repository</h3>
 <p>
     To be able to place your code under version control you need a Git repository. You can easily initialize a Git
     repository with a simple one-time command that will create a new <code>.git</code> subdirectory in your current
@@ -107,7 +107,7 @@ layout: default
     <p>The initial repository will be completely empty without any commits. This is in contrast to creating new
         repositories with Github that will automatically have a single commit called "Initial commit".</p>
 </div>
-<h3>Clone repository</h3>
+<h3 id="clone-repository">Clone repository</h3>
 <p>
     If a project has already been set up in a GitHub repository, the clone command is the most common way for users to
     obtain a local development clone. The repository can also be cloned by obtaining the link to repository and
@@ -139,7 +139,7 @@ layout: default
         or the official <a href="https://www.git-scm.com/docs/git-clone">Git documentation</a>.
     </p>
 </div>
-<h3>The Git index</h3>
+<h3 id="the-git-index">The Git index</h3>
 <p>
     The Git index is used as a staging area between your working directory and your repository. You can use the index to
     build up a set of changes that you want to commit together. When you create a commit, what is committed is what is
@@ -195,7 +195,7 @@ layout: default
 {% highlight none %}
     {{ "$ git restore --staged ." }}
 {% endhighlight %}
-<h3>Git diff</h3>
+<h3 id="git-diff">Git diff</h3>
 <p>
     Git diff shows changes between the working tree and the index or a tree, changes resulting from a merge, changes
     between two branches or two commits. In essence it takes two input data sets and outputs the changes between them.
