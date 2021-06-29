@@ -1,5 +1,9 @@
-docs_list_title: Table of contents
-docs:
-
-  - title: Demo subpage
-    url: demo.html
+toc:
+  - title: Demo page
+    subfolderitems:
+      - page: Header 1
+        url: /demo.html#header1
+      - page: Header 2
+        url: /demo.html#header2
+      - page: Header 3
+        url: /demo.html#header3
