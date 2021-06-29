@@ -37,13 +37,15 @@
 
         <aside id="sidebar">
             {% if page.nav == true %}
-                {% for page in site.data.nav.toc %}
-                    <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-                    <ul>
-                        {% for header in page.headers %}
-                        <li><a href="{{ header.url }}">{{ header.title }}</a></li>
-                        {% endfor %}
-                    </ul>
+                {% for navPage in site.data.nav.toc %}
+                    <h3><a href="{{ navPage.url }}">{{ navPage.title }}</a></h3>
+                    {% if navPage.url == page.url %}
+                        <ul>
+                            {% for header in navPage.headers %}
+                                <li><a href="{{ header.url }}">{{ header.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 {% endfor %}
             {% endif %}
         </aside>
