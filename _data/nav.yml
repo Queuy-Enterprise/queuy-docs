@@ -1,5 +1,6 @@
 toc:
   - title: Demo page
+    url: /demo.html
     subfolderitems:
       - page: Header 1
         url: /demo.html#header1
