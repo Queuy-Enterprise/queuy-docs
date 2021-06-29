@@ -1,0 +1,10 @@
+toc:
+  - title: Demo page
+    url: /demo.html
+    headers:
+      - title: Header 1
+        url: /demo.html#header1
+      - title: Header 2
+        url: /demo.html#header2
+      - title: Header 3
+        url: /demo.html#header3
