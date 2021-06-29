@@ -8,3 +8,10 @@ toc:
         url: /demo.html#header2
       - title: Header 3
         url: /demo.html#header3
+  - title: Version Control
+    url: /environment/version-control.html
+    headers:
+      - title: What is Git
+        url: /environment/version-control.html#what-is-git
+      - title: Getting started with Git
+        url: /environment/version-control.html#getting-started-with-git
