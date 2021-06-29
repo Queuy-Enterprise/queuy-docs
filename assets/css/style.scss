@@ -41,3 +41,41 @@ iframe {
   border: 0;
 }
 
+.important-box, .note-box {
+  border-radius: 3px;
+  box-shadow: 0 1px 2px #DBDBDB;
+  margin-bottom: 0.625rem;
+  overflow-y: auto;
+}
+
+.important-box {
+  background: rgba(192, 242, 232, 0.9);
+}
+.note-box {
+  background: #C0DCF2;
+}
+
+.important-box p, .note-box p {
+  font-size: 1.0rem;
+  text-align: justify;
+  margin-top: 0.6rem;
+  padding: 0 15px;
+}
+
+.important-title, .note-title {
+  font-weight: bold;
+  padding: 0.6rem 0 0.3rem 1rem;
+  font-size: 1.2rem;
+  color: #FBF9F9;
+  margin: 0;
+  border-radius: 3px 3px 0 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.note-title {
+  background: #7dbae8;
+}
+
+.important-title {
+  background: rgba(125, 232, 210, 0.9);
+}
