@@ -1,3 +1,7 @@
 theme: jekyll-theme-architect
 title: Queuy Docs
 description: Documents about technologies and workflows used by Queuy
+exclude:
+  - docker-compose.yml
+  - Dockerfile
+  - Gemfile*
