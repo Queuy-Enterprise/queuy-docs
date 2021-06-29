@@ -257,3 +257,39 @@ nav: true
         <code>.diff</code> file and make the diff even easier to read.
     </p>
 </div>
+<h3>Git log</h3>
+<p>
+    The <code>git log</code> command shows a list of commits along with detailed information
+    such as SHA, author, date and commit description. You should always prefer to use a graphical interface provided
+    by GitHub Desktop over <code>git log</code> command when you need a simple overview of commits. However, this
+    command is really useful when you want to see a list of commit SHA or display and filter commits with some criteria.
+</p>
+<p>
+    Executing <code>git log</code> command without any arguments will list all commits in the current branch. However,
+    there is much more we can do with this command, here are a few useful examples:
+</p>
+<ul>
+    <li>List all commits in the current branch:</li>
+    {% highlight none %}
+        $ git log
+    {% endhighlight %}
+    <li>List all commits in the <code>dev</code> branch:</li>
+    {% highlight none %}
+        $ git log dev
+    {% endhighlight %}
+    <li>List only the last 5 commits in the current branch:</li>
+    {% highlight none %}
+        $ git log -5
+    {% endhighlight %}
+    <li>List all commits between <code>&lt;commit1&gt;</code> and <code>&lt;commit2&gt;</code>:</li>
+    {% highlight none %}
+        $ git log {{ "<commit1>...<commit2>" }}
+    {% endhighlight %}
+</ul>
+<div class="note-box">
+    <div class="note-title">Note</div>
+    <p>
+        Learn more about how you can use <code>git log</code> command from
+        <a href="https://www.git-scm.com/docs/git-log">official Git documentation</a>.
+    </p>
+</div>
