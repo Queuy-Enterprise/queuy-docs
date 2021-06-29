@@ -62,3 +62,206 @@ layout: default
     climb the learning curve when migrating to Git from another version control system, many of their existing and
     future developers do not need to be trained on Git.
 </p>
+<h2>Getting started with Git</h2>
+<hr>
+<p>
+    Git is a very powerful tool and as noted before is essential to any mature development workflow. However, due to
+    it's complexity learning it from the ground up can prove to be a challenge even to experienced software developers.
+    In this section we are going to quickly go through the process of installation and learning basic commands
+    you need to know to get started with Git.
+</p>
+<h3>Install Git</h3>
+<p>
+    Here is how to install Git on Ubuntu distributions:
+</p>
+{% highlight sh %}
+    $ sudo apt-get update
+    $ sudo apt-get install git
+{% endhighlight %}
+<p>
+    Now verify that the installation was successful:
+</p>
+{% highlight sh %}
+    $ git --version
+    git version 2.30.2
+{% endhighlight %}
+<h3>Initialize repository</h3>
+<p>
+    To be able to place your code under version control you need a Git repository. You can easily initialize a Git
+    repository with a simple one-time command that will create a new <code>.git</code> subdirectory in your current
+    working directory and also create a new main branch.
+</p>
+<p>
+    Let's create your first Git repository. Navigate to the directory that you want to make the root directory
+    of your repository. For example, let's create a repository in <code>~/Documents/GitHub/project/</code>
+    directory:
+</p>
+{% highlight none %}
+    $ mkdir -p ~/Documents/Github/project/
+    $ cd ~/Documents/Github/project/
+    $ git init
+    Initialized empty Git repository in ~/Documents/GitHub/project/.git
+{% endhighlight %}
+<div class="note-box">
+    <div class="note-title">Note</div>
+    <p>The initial repository will be completely empty without any commits. This is in contrast to creating new
+        repositories with Github that will automatically have a single commit called "Initial commit".</p>
+</div>
+<h3>Clone repository</h3>
+<p>
+    If a project has already been set up in a GitHub repository, the clone command is the most common way for users to
+    obtain a local development clone. The repository can also be cloned by obtaining the link to repository and
+    using GitHub Desktop to clone the repository with a graphical interface.
+</p>
+<p>
+    Let's clone the repository of the pages you are currently reading:
+</p>
+{% highlight none %}
+    $ git clone https://github.com/Queuy-Enterprise/queuy-docs.git
+    Cloning into 'queuy-docs'...
+    remote: Enumerating objects: 230, done.
+    remote: Counting objects: 100% (230/230), done.
+    remote: Compressing objects: 100% (132/132), done.
+    remote: Total 230 (delta 83), reused 214 (delta 73), pack-reused 0
+    Receiving objects: 100% (230/230), 98.31 KiB | 1.89 MiB/s, done.
+    Resolving deltas: 100% (83/83), done.
+{% endhighlight %}
+<p>
+    There are many different parameters you can use when cloning your repository. For example you can clone the
+    repository to a specific directory, clone a specific tag or branch, specify depth of history you want to clone,
+    and much more.
+</p>
+<div class="note-box">
+    <div class="note-title">Note</div>
+    <p>
+        For more information on using the <code>git clone</code> command you can read the
+        <a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone">Atlassian tutorial</a>
+        or the official <a href="https://www.git-scm.com/docs/git-clone">Git documentation</a>.
+    </p>
+</div>
+<h3>The Git index</h3>
+<p>
+    The Git index is used as a staging area between your working directory and your repository. You can use the index to
+    build up a set of changes that you want to commit together. When you create a commit, what is committed is what is
+    currently in the index, not what is in your working directory.
+</p>
+<p>
+    Before we commit our change we need to add them to the index with the following command:
+</p>
+{% highlight none %}
+    $ mkdir -p ~/Documents/Github/project/
+    $ cd ~/Documents/Github/project/
+    $ git init
+    Initialized empty Git repository in ~/Documents/GitHub/project/.git
+{% endhighlight %}
+<p>
+    To see what is currently in the index run the following command:
+</p>
+{% highlight none %}
+    $ git status
+    On branch gh-pages
+    Your branch is behind 'origin/gh-pages' by 14 commits, and can be fast-forwarded.
+    (use "git pull" to update your local branch)
+
+    Changes not staged for commit:
+    (use "git add {{ "<file>" }}..." to update what will be committed)
+    (use "git restore {{ "<file>" }}..." to discard changes in working directory)
+    {% raw %}
+    modified:   assets/css/style.scss
+    {% endraw %}
+    modified:   environment/version-control.html
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+{% endhighlight %}
+<p>
+    Here you can see that I have two files that were modified but not yet staged for commit. Before we can commit
+    these changes we need to first add them to the index, so let's do that now:
+</p>
+{% highlight none %}
+    $ git add .
+{% endhighlight %}
+<p>
+    This command uses <code>.</code> character to add <b>all</b> changes in the current directory (recursively)
+    to the index. You can also add modified files manually by supplying the <code>git add</code> command
+    with a list of files you want to add to index:
+</p>
+{% highlight none %}
+    {{ "$ git add <first_file> <second_file>" }}
+{% endhighlight %}
+<p>
+    Note that you can add as much files as you want to the index in a single command, however it is often more
+    convenient to just use the <code>.</code> character to add everything to the index rather then specifying each
+    file one by one. If you have added a file to index by accident or have decided that you do not want to commit a
+    specific file you can remove it from the index with the following command:
+</p>
+{% highlight none %}
+    {{ "$ git restore --staged <file>" }}
+{% endhighlight %}
+<p>
+    As with adding files to index, if you want to remove all changes from your index you can use the
+    <code>.</code> character:
+</p>
+{% highlight none %}
+    {{ "$ git restore --staged ." }}
+{% endhighlight %}
+<h3>Git diff</h3>
+<p>
+    Git diff shows changes between the working tree and the index or a tree, changes resulting from a merge, changes
+    between two branches or two commits. In essence it takes two input data sets and outputs the changes between them.
+</p>
+<div class="note-box">
+    <div class="note-title">Note</div>
+    <p>
+        You can use <code>git diff</code> to see changes between files that are not under version control by
+        including the <code>--no-index</code> parameter before non optional arguments.
+    </p>
+</div>
+<p>
+    Let's try add and commit two files with different content and compare them with <code>git diff</code> command.
+    First we will create and commit one file, modify it and see the diff between working tree and index:
+</p>
+{% highlight none %}
+    $ echo 'I like pancakes' > file1
+    $ git add file1 && git commit -m "Start liking pancakes"
+    $ echo 'I love waffles' >> file1
+    $ git diff file1
+    diff --git a/file1 b/file1
+    index c0b5e9e..114ef85 100644
+    --- a/file1
+    +++ b/file1
+    @@ -1 +1,2 @@
+    I like pancakes
+    +I love waffles
+{% endhighlight %}
+<p>
+    In the output above we can clearly see that a single line of text was added to the end of <code>file1</code>.
+    Now let's create the second file and compare it's content with that of the first file we created:
+</p>
+{% highlight none %}
+    $ echo 'I do not like pineapple' > file2
+    $ echo 'I do not like kiwi' >> file2
+    $ git add file2 && git commit -m "List what I don't like"
+    $ git diff HEAD:file1 -- file2
+    diff --git a/file1 b/file2
+    index c0b5e9e..36c5a72 100644
+    --- a/file1
+    +++ b/file2
+    @@ -1 +1,2 @@
+    -I like pancakes
+    +I do not like pineapple
+    +I do not like kiwi
+{% endhighlight %}
+<p>
+    We just went through two examples but you should already see that <code>git diff</code> is a simple command that
+    is very useful in your day to day workflow. Normally we would use the graphical interface provided by GitHub Desktop
+    to see the diff between the working tree and the index, however if we need to compare branches or specific commits
+    we need to use the <code>git diff</code> command to get clear results.
+</p>
+<div class="note-box">
+<div class="note-title">Note</div>
+<p>
+    Remember that you can direct the output of <code>git diff</code> command to a text file so it's easier to read.
+    If you are using a text editor that supports diff syntax highlighting you can export the output to a
+    <code>.diff</code> file and make the diff even easier to read.
+</p>
+</div>
