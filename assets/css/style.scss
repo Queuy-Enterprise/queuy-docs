@@ -38,6 +38,17 @@ p, ul, li {
   font-size: 1.225rem;
 }
 
+ul pre {
+  padding-bottom: 5px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+figure.highlight {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 aside#sidebar p {
   font-size: 1.0rem;
 }
